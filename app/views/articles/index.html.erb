@@ -1,0 +1,9 @@
+<div>
+  <div class="row mt-2">
+    <% @articles.each do |article| %>
+      <div class="col-3 mx-2 mt-2">
+        <%= render article %>
+      </div>
+    <% end %>
+  </div>
+</div>

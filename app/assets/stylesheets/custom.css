@@ -6,6 +6,7 @@ Main Application
 */
 .main{
     min-height: calc(100vh - 100px);
+    margin-bottom: 20px;
 }
 
 

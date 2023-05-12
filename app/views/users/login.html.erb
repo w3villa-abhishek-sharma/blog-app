@@ -1,0 +1,13 @@
+<%= form_with(scope: :session, url:login_path) do |form| %>
+  <div class="mb-3">
+    <%= form.label :username, style: "display: block" ,class: "form-label" %>
+    <%= form.text_field :username, class: "form-control",placeholder: "Enter your username" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :password, style: "display: block", class: "form-label" %>
+    <%= form.text_field :password, class: "form-control", placeholder: "Enter your password.." %>
+  </div>
+  <div>
+    <%= form.submit "Login", class: "btn btn-primary" , style: "width: 100%"%>
+  </div>
+<% end %>

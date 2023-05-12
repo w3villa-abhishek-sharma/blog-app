@@ -1,0 +1,12 @@
+<div class="card d-flex justify-content-center align-items-center" style="width: 100%;">
+  <img style="width:150px;" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" class="card-img-top" alt="...">
+  <div class="card-body text-center">
+    <h5 class="card-title"><%= @user.username%></h5>
+    <div style="display:flex; gap:8px;">
+      <% if(@user.id == session[:user_id])%>
+        <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %>
+      <% end %>
+      <%= link_to "View articles", "/articles/users/#{@user.id}", class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

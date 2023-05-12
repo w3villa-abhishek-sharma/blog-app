@@ -1,6 +1,22 @@
-<div class="card" style="width: 18rem;">
+<div class="card mt-3" style="background:#80808014;">
   <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted"><%= article.title%></h6>
+    <h6 class="card-subtitle mb-2 text-muted d-flex justify-content-between"><span><%= article.title%></span> </h6>
     <p class="card-text"><%= article.description%></p>
+    <div style="display:flex; gap:8px;">
+      <% if(article.user.id == session[:user_id])%>
+        <%= link_to "Edit", edit_article_path(article), class: "btn btn-primary" %>
+        <%= button_to "Delete", article, method: :delete ,class: "btn btn-secondary", data: {turbo_confirm: "Are you sure?"} %>
+      <% end %>
+    </div>
+    <hr/>
+    <div class="d-flex justify-content-between">
+      <div>
+        <span style="font-size:1rem;opacity:0.7;">Created :  <%= timeCalculator(article.created_at)%></span> || 
+        <span style="font-size:1rem;opacity:0.7;">Updated :  <%= timeCalculator(article.updated_at)%></span>
+      </div>
+      <div>
+        By <%= article.user.username%>
+      </div>
+    </div>
   </div>
 </div>

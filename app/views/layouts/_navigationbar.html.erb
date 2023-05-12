@@ -1,36 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background: #80808014 !important">
   <div class="container">
-    <a class="navbar-brand" href="#">Blog APP</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="/">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <%# <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+          <a class="nav-link" href="/my-blog">My blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li> %>
+          <a class="nav-link" href="/all-user">All Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/articles/new">New Blog</a>
+        </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <button class="btn btn-outline-success my-2 my-sm-0 mx-2" type="button">Sign Up</button>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button">Sign In</button>
-      </form>
+      <% if(session[:username])%>
+      <a style="text-decoration:unset; color:#000;" href="/profile">
+        <i class="fa-solid fa-user"></i> &nbsp; <%= session[:username]%>
+      </a>
+      <% else %>
+        <button class="btn btn-primary mx-2" type="submit">Sign In</button>
+        <button class="btn btn-primary" type="submit">Sign Up</button>
+      <% end %>
     </div>
   </div>
 </nav>
